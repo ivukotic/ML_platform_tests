@@ -134,6 +134,7 @@ def getWorkload():
         #print(df.head(2))
     print('docs read:', count)
 
+    if len(dfs)<2: return (1,0,0)
     full_df = pd.concat(dfs, axis=1)
     print(full_df.shape)
     # fix NANs
@@ -222,15 +223,19 @@ class ANN(object):
 
 # run it
 while (True):
+    body={"doc": {"processed": "yes"}}
     (job_id, timestamp, data) = getWorkload()
     if job_id == 0:
         print('All done.')
         break
+    elif job_id == 1:
+        print('Not enough data.')
+        es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        continue
+    else:
+        ann = ANN(timestamp, data)
+        rescaled_accuracy = ann.check_for_anomaly()
     
-    ann = ANN(timestamp, data)
-    rescaled_accuracy = ann.check_for_anomaly()
-    
-    #update state and value
-    body={"doc": {"processed": "yes"}}
-    if rescaled_accuracy != -999: body['doc']['rescaled'] = rescaled_accuracy
-    es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        #update state and value
+        if rescaled_accuracy != -999: body['doc']['rescaled'] = rescaled_accuracy
+        es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
