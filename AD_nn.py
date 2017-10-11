@@ -58,7 +58,7 @@ def getWorkload():
     hits = res['hits']['hits']
     if len(hits)==0:
         print('All done.')
-        return (0,0,0)
+        return (0,0,0,1)
 
     job_id = res['hits']['hits'][0]['_id']
     job_source = res['hits']['hits'][0]['_source']
@@ -134,12 +134,12 @@ def getWorkload():
         #print(df.head(2))
     print('docs read:', count)
 
-    if len(dfs)<2: return (1,0,0)
+    if len(dfs)<2: return (0,0,0,2)
     full_df = pd.concat(dfs, axis=1)
     print(full_df.shape)
     # fix NANs
     full_df.fillna(0, inplace=True)
-    return (job_id, end, full_df)
+    return (job_id, end, full_df, 0)
 
 def scaled_accuracy(accuracy, ref_samples, sub_samples):
     chance = float(ref_samples)/(ref_samples+sub_samples)
@@ -224,11 +224,11 @@ class ANN(object):
 # run it
 while (True):
     body={"doc": {"processed": "yes"}}
-    (job_id, timestamp, data) = getWorkload()
-    if job_id == 0:
+    (job_id, timestamp, data, status) = getWorkload()
+    if status == 1:
         print('All done.')
         break
-    elif job_id == 1:
+    elif status == 2:
         print('Not enough data.')
         es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
         continue
