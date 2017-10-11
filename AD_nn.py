@@ -134,7 +134,7 @@ def getWorkload():
         #print(df.head(2))
     print('docs read:', count)
 
-    if len(dfs)<2: return (0,0,0,2)
+    if len(dfs)<2: return (job_id,0,0,2)
     full_df = pd.concat(dfs, axis=1)
     print(full_df.shape)
     # fix NANs
