@@ -154,9 +154,9 @@ class ANN(object):
         self.df = data
         self.lend = end
         self.nn = Sequential()
-        self.nn.add(Dense(units=n_series*2, input_shape=(n_series,), activation='relu' ))
+        self.nn.add(Dense(units=self.n_series*2, input_shape=(self.n_series,), activation='relu' ))
     #   self.nn.add(Dropout(0.5))
-        self.nn.add(Dense(units=n_series, activation='relu'))
+        self.nn.add(Dense(units=self.n_series, activation='relu'))
     #   self.nn.add(Dropout(0.5))
         self.nn.add(Dense(units=1, activation='sigmoid'))
     #   self.nn.compile(loss='hinge', optimizer='sgd', metrics=['binary_accuracy'])
@@ -222,12 +222,12 @@ class ANN(object):
 
 # run it
 while (True):
-    (job_id, data) = getWorkload()
+    (job_id, timestamp, data) = getWorkload()
     if job_id == 0:
         print('All done.')
         break
     
-    ann = ANN(data)
+    ann = ANN(timestamp, data)
     rescaled_accuracy = ann.check_for_anomaly()
     
     #update state and value
