@@ -1,4 +1,4 @@
-from elasticsearch import Elasticsearch
+from elasticsearch import Elasticsearch, exceptions as es_exceptions
 from elasticsearch.helpers import scan
 
 from time import time
@@ -68,8 +68,12 @@ def getWorkload():
     print ('Processing id:',job_id, '\ttimebin:', job_timestamp, '\tsite:', site, '\tendpoint:', endpoint)
 
     # setting a lock on the job
-    es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body={"doc": {"processed": "pending"}})
-
+    
+    try:
+        es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body={"doc": {"processed": "pending"}})
+    except es_exceptions.TransportError as e:
+        print ('TransportError ', e)
+        return (0,0,0,3)
     
     # getting actual perfsonar data
     end = pd.Timestamp(job_timestamp)
@@ -232,10 +236,15 @@ while (True):
         print('Not enough data.')
         es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
         continue
+    elif status == 3:
+        print('Probably already done.')
     else:
         ann = ANN(timestamp, data)
         rescaled_accuracy = ann.check_for_anomaly()
     
         #update state and value
         if rescaled_accuracy != -999: body['doc']['rescaled'] = rescaled_accuracy
-        es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        try:
+            es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        except es_exceptions.TransportError as e:
+            print ('TransportError on result update', e)
