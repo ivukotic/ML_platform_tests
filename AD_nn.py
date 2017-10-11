@@ -234,7 +234,10 @@ while (True):
         break
     elif status == 2:
         print('Not enough data.')
-        es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        try:
+            es.update(index=alarm_index, doc_type=alarm_type, id=job_id, body=body)
+        except es_exceptions.TransportError as e:
+            print ('TransportError on not enough data update', e)
         continue
     elif status == 3:
         print('Probably already done.')
