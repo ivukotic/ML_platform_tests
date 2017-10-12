@@ -117,6 +117,7 @@ class ANN(object):
     
 while True:
     objs = listdir(path)
+    print(objs)
     toProcess=''
     for o in objs:
         if o.endswith('.h5') and "res_"+o not in objs and "proc_"+o not in objs:
