@@ -51,6 +51,7 @@ for s in res['aggregations']['sources']['buckets']:
 for k,v in sources.items():
     print ('source server:',k,'\tdocuments', v)
     my_query = {
+        "_source": [   "timestamp", "src", "dest", "packet_loss"  ],
         'query': { 
            'bool':{
                 'must':[
@@ -62,7 +63,7 @@ for k,v in sources.items():
         }
     }
     
-    scroll = scan(client=es, index=indices, query=my_query)
+    scroll = scan(client=es, index=indices, query=my_query, timeout='5m', size=20000, filter_path=['_scroll_id', '_shards', 'hits.hits._source'])
     
     count = 0
     
