@@ -119,7 +119,7 @@ while True:
     objs = listdir(path)
     toProcess=''
     for o in objs:
-        if o.endswith('.h5') and "res_"+o not in objs and "proc_"+o not in objs and not o.startswith('res') and not o.startswith('proc'):
+        if o.endswith('.h5') and "res_"+o not in objs and "proc_"+o not in objs:
             toProcess=o
             f  = open(path + 'proc_' + o, 'w')
             f.write(str(time()))
@@ -139,6 +139,6 @@ while True:
     ann = ANN(full_df, auc_df)
     ann.loop_over_intervals()
                           
-    hdf = pd.HDFStore( 'res_' + o + '.h5')
+    hdf = pd.HDFStore( 'res_' + o)
     hdf.put('result', auc_df, format='table', data_columns=True)
     hdf.close()
