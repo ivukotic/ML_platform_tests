@@ -69,15 +69,15 @@ for k,v in sources.items():
     
     allData={} # will be like this: {'dest_host':[[timestamp],[value]], ...} 
     
+    stime = time()
     for res in scroll:
     #     if count<2: print(res) 
-        if not count%1000000: print(count)
         dst = 'd_'+res['_source']['dest'].replace('.','_').replace(':','_') # old data - dest, new data - dest_host
         if dst not in allData: allData[dst]=[[],[]]
         allData[dst][0].append(res['_source']['timestamp'] )
         allData[dst][1].append(res['_source']['packet_loss'])
-
         count=count+1
+        if not count%1000000: print(count, count/(time()-stime),'docs/s')
 
     dfs=[]
     for dest,data in allData.items():
