@@ -47,8 +47,8 @@ for s in res['aggregations']['sources']['buckets']:
     print(s)
     sources[s['key']]=s['doc_count']
     
- # get and store actual data
- for k,v in sources.items():
+# get and store actual data
+for k,v in sources.items():
     print ('source server:',k,'\tdocuments', v)
     my_query = {
         'query': { 
@@ -91,6 +91,6 @@ for s in res['aggregations']['sources']['buckets']:
     full_df = pd.concat(dfs, axis=1)
     print(full_df.shape)
     
-    hdf = pd.HDFStore( k + '.h5')
+    hdf = pd.HDFStore( '/var/lib/' + k + '.h5')
     hdf.put('data', full_df, format='table', data_columns=True)
     hdf.close()
