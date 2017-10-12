@@ -63,7 +63,7 @@ for k,v in sources.items():
         }
     }
     
-    scroll = scan(client=es, index=indices, query=my_query, timeout='5m', size=20000, filter_path=['_scroll_id', '_shards', 'hits.hits._source'])
+    scroll = scan(client=es, index=indices, query=my_query, timeout='5m', size=10000)
     
     count = 0
     
