@@ -14,6 +14,7 @@ indices = "network_weather-2017.*"
 type = 'packet_loss_rate'
 start_date = '2017-05-10 00:00:00'
 end_date = '2017-10-10 23:59:59'
+path = '/var/lib/'
 
 start = pd.Timestamp(start_date)
 end   = pd.Timestamp(end_date)
@@ -50,6 +51,10 @@ for s in res['aggregations']['sources']['buckets']:
 # get and store actual data
 for k,v in sources.items():
     print ('source server:',k,'\tdocuments', v)
+    fil = Path(path+k+'.h5')
+    if my_file.is_file():
+        print(k,'was already done.')
+        continue
     my_query = {
         "_source": [   "timestamp", "src", "dest", "packet_loss"  ],
         'query': { 
@@ -92,6 +97,6 @@ for k,v in sources.items():
     full_df = pd.concat(dfs, axis=1)
     print(full_df.shape)
     
-    hdf = pd.HDFStore( '/var/lib/' + k + '.h5')
+    hdf = pd.HDFStore( path + k + '.h5')
     hdf.put('data', full_df, format='table', data_columns=True)
     hdf.close()
