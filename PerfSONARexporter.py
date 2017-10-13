@@ -3,6 +3,7 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import scan
 from time import time
+import os.path
 
 import numpy as np
 import pandas as pd
