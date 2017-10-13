@@ -20,7 +20,7 @@ from pandas.tseries.offsets import *
 # tuning parameters
 ref = 24
 sub = 1
-path='/var/lib/'
+path='/data/'
 
 chance = ref/(sub+ref)
 cut = chance + (1-chance) * 0.05
