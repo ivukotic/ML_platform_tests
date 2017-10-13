@@ -52,8 +52,7 @@ for s in res['aggregations']['sources']['buckets']:
 # get and store actual data
 for k,v in sources.items():
     print ('source server:',k,'\tdocuments', v)
-    fil = Path(path+k+'.h5')
-    if my_file.is_file():
+    if os.path.isfile(path+k+'.h5'):
         print(k,'was already done.')
         continue
     my_query = {
