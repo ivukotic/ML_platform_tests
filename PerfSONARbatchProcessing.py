@@ -120,6 +120,7 @@ while True:
     print(objs)
     toProcess=''
     for o in objs:
+        if o.startswith('proc_') or o.startswith('res_'): continue
         if o.endswith('.h5') and "res_"+o not in objs and "proc_"+o not in objs:
             toProcess=o
             f  = open(path + 'proc_' + o, 'w')
