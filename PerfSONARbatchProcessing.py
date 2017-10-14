@@ -141,6 +141,6 @@ while True:
     ann = ANN(full_df, auc_df)
     ann.loop_over_intervals()
                           
-    hdf = pd.HDFStore( 'res_' + o)
+    hdf = pd.HDFStore( path + 'res_' + o)
     hdf.put('result', auc_df, format='table', data_columns=True)
     hdf.close()
