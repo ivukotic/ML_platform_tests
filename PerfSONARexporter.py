@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Exports perfsonar data in one frame per src site
 
 from elasticsearch import Elasticsearch
@@ -15,7 +17,7 @@ indices = "network_weather-2017.*"
 type = 'packet_loss_rate'
 start_date = '2017-05-10 00:00:00'
 end_date = '2017-10-10 23:59:59'
-path = '/data/'
+path = '/tmp/data/'
 
 start = pd.Timestamp(start_date)
 end   = pd.Timestamp(end_date)

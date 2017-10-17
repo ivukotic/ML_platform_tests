@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from elasticsearch import Elasticsearch, helpers, exceptions as es_exceptions
 from datetime import datetime, timedelta
 import math

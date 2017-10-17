@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import time
 from tensorflow.examples.tutorials.mnist import input_data
