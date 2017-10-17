@@ -2,7 +2,7 @@
 
 mkdir -p /data/tutorial/amir
 cd /data/tutorial/amir
-wget http://archive.ics.uci.edu/ml/machine-learning-databases/00279/SUSY.csv.gz
+wget -N http://archive.ics.uci.edu/ml/machine-learning-databases/00279/SUSY.csv.gz
 gunzip SUSY.csv.gz
 
 # Ilija's tutorial
