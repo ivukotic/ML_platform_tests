@@ -2,7 +2,6 @@
 
 mkdir -p /data/tutorial/amir
 cd /data/tutorial/amir
-wget https://raw.githubusercontent.com/UTA-HEP-Computing/DSatHEP-Tutorial/master/IntroToDLwithKeras.ipynb
 wget http://archive.ics.uci.edu/ml/machine-learning-databases/00279/SUSY.csv.gz
 gunzip SUSY.csv.gz
 
@@ -10,4 +9,7 @@ gunzip SUSY.csv.gz
 mkdir -p /data/tutorial/ilija
 cd /data/tutorial/ilija
 
+mkdir /root/.jupyter/
+wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/jupyter_notebook_config.py
+mv jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 jupyter notebook --allow-root
