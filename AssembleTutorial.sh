@@ -2,7 +2,7 @@
 
 mkdir -p /data/tutorial/amir
 cd /data/tutorial/amir
-wget https://github.com/UTA-HEP-Computing/DSatHEP-Tutorial/blob/master/IntroToDLwithKeras.ipynb
+wget https://raw.githubusercontent.com/UTA-HEP-Computing/DSatHEP-Tutorial/master/IntroToDLwithKeras.ipynb
 wget http://archive.ics.uci.edu/ml/machine-learning-databases/00279/SUSY.csv.gz
 gunzip SUSY.csv.gz
 
