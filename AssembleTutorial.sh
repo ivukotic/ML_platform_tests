@@ -26,6 +26,7 @@ echo "positron: '/data/tutorial/Ben/eplus.hdf5'" > particles.yaml
 cd /opt/root/
 source bin/thisroot.sh
 # copy ROOT kernel into Jupyter
+mkdir -p /root/.local/share/jupyter/kernels
 cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 
 mkdir /root/.jupyter/
