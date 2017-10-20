@@ -22,6 +22,12 @@ cd /ML_platform_tests/tutorial/Ben/CaloGAN/models
 echo "positron: '/data/tutorial/Ben/eplus.hdf5'" > particles.yaml
 # python -m train particles.yaml
 
+# setup ROOT
+cd /opt/root/
+source bin/thisroot.sh
+# copy ROOT kernel into Jupyter
+cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
+
 mkdir /root/.jupyter/
 wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/jupyter_notebook_config.py
 mv jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
