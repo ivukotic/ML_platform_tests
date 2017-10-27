@@ -1,3 +1,3 @@
 [submodule "tutorial/giordon/hello_world_cython"]
 	path = tutorial/giordon/hello_world_cython
-	url = ../../kratsg/hello_world_cython.git
+	url = https://github.com/kratsg/hello_world_cython.git
