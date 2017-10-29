@@ -33,6 +33,9 @@ cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 pip2 install root-pandas
 pip3 install root-pandas
 
+# for Max's tutorial
+ln -s /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.3 /usr/lib/x86_64-linux-gnu/libxml2.so
+
 mkdir /root/.jupyter/
 wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/jupyter_notebook_config.py
 mv jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
