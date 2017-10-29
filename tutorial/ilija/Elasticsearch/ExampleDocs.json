@@ -1,0 +1,7 @@
+{"index":{"_type":"event"}} 
+{ "eventnr":1231455, "description":"my higgs candidate1", "timestamp":1509301292000, "tracks":[ { "kind":"InDet", "pT":1324.123, "chi2":1.234 }, { "kind":"MuonSeg", "pT":1324.123, "chi2":1.234 } ] }
+{"index":{"_type":"event"}} 
+{ "eventnr":2222222, "description":"my higgs candidate2", "timestamp":1509301293000, "tracks":[ { "kind":"InDet", "pT":1324.123, "chi2":1.234 }, { "kind":"MuonSeg", "pT":1324.123, "chi2":1.234 } ] }
+{"index":{"_type":"event"}} 
+{ "eventnr":3333333, "description":"my higgs candidate3", "timestamp":1509301294000, "tracks":[ { "kind":"InDet", "pT":1324.123, "chi2":1.234 }, { "kind":"MuonSeg", "pT":1324.123, "chi2":1.234 } ] }
+

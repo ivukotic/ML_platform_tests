@@ -1,0 +1,18 @@
+{
+    "eventnr":1231455,
+    "description":"my higgs candidate!",
+    "tags" : ["13TeV","mc"]
+    "tracks": [
+        {
+            "kind":"InDet",
+            "pT":1324.123,
+            "chi2":1.234
+        },
+        {
+            "kind":"MuonSeg",
+            "pT":1324.123,
+            "chi2":1.234
+        }
+    ],
+    "timestamp":1509301292000
+}
