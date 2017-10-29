@@ -1,7 +1,7 @@
 from ROOT import *
 import numpy as np
 
-doeasy = False #if easy, then we get two Gaussians, otherwise, many Gaussians!
+doeasy = True #if easy, then we get two Gaussians, otherwise, many Gaussians!
 
 def mycopy(myinput):
   myoutput = TH1F("","",myinput.GetNbinsX(),myinput.GetXaxis().GetBinCenter(1)-0.5*myinput.GetXaxis().GetBinWidth(1),myinput.GetXaxis().GetBinCenter(myinput.GetNbinsX())+0.5*myinput.GetXaxis().GetBinWidth(myinput.GetNbinsX()))
@@ -34,7 +34,7 @@ for i in range(1,mygraphS.GetNbinsX()+1):
 		mygraphLL.SetBinContent(i,100000.)
 	elif (mygraphB.GetBinContent(i) > 0):
 		mygraphLL.SetBinContent(i,1./100000.)
-	else: 
+	else:
 		mygraphLL.SetBinContent(i,1)
 	pass
 
