@@ -1,7 +1,7 @@
 {
     "eventnr":1231455,
     "description":"my higgs candidate!",
-    "tags" : ["13TeV","mc"]
+    "tags" : ["13TeV","mc"],
     "tracks": [
         {
             "kind":"InDet",
