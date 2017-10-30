@@ -1,3 +1,3 @@
 # Deep Learning with images
 
-Coming soon...
+Run 'DeepLearning-MNIST.ipynb'
