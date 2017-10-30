@@ -1,7 +1,7 @@
 # Welcome to the Machine Learning Platform
 
 Our goal is to provide an out-of-the-box working platform for most machine learning needs of high energy physics and astrophysics. For this we have been given access to the GPU and storage resources of the [Pacific Research Platform](http://prp.ucsd.edu/). 
-Each Jupyter instance has access to one GPU (GTX 1080 or TitanX), a shared storage space in the directory labeled `/data/`, and a cloned repository with ML example codes used for the [EFI Data Analytics for Physics workshop](https://efi.uchicago.edu/content/efi-data-analytics-physics), October 30 - November 1, 2017.
+Each Jupyter instance has access to one GPU (GTX 1080 or TitanX), a shared storage space in the directory labeled `/data/`, and a cloned repository with ML example codes used for the [EFI Data Analytics for Physics workshop](https://efi.uchicago.edu/content/efi-data-analytics-physics), October 30 - November 1, 2017. The source for these tutorials is in [GitHub here](https://github.com/ivukotic/ML_platform_tests/tree/master/tutorial).
 
 Each instance should be considered transient so if you want to keep your code, have a copy elsewhere (locally on your computer, github,...).
 
