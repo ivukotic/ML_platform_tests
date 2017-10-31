@@ -11,4 +11,4 @@ cd /ML_platform_tests/tutorial/Ben/CaloGAN/models
 echo "positron: '/data/CaloGAN/inputs/eplus.hdf5'" > particles.yaml
 export SHELL=/bin/bash
 
-python -m train "$@" particles.yaml
+python train.py "$@" particles.yaml
