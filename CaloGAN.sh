@@ -10,7 +10,6 @@ mkdir -p /data/CaloGAN/weights
 #create output data directory
 mkdir -p /data/CaloGAN/outputs
 
-mkdir -p /ML_platform_tests/tutorial/CaloGAN
 cd /ML_platform_tests/tutorial/
 git clone https://github.com/ivukotic/sc2017_prp.git
 cd /ML_platform_tests/tutorial/sc2017_prp
