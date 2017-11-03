@@ -17,5 +17,5 @@ cd /ML_platform_tests/tutorial/sc2017_prp
 export SHELL=/bin/bash
 
 #python train.py "$@"
-#python generator.py /data/CaloGAN/weights/xxx /data/CaloGAN/outputs/images1.h5
+#python generator.py /data/CaloGAN/weights/params_generator_epoch_049.hdf5 /data/CaloGAN/outputs/images1.h5
 python "$@"
