@@ -1,15 +1,19 @@
 {
-    "template" : "my_events",
+    "template" : "sc2017",
     "settings" : {
         "number_of_shards" : 1,
         "number_of_replicas" : 1
     },
     "mappings" : {
-        "event" : {
+        "doc" : {
             "properties" : {
-                "description":{"type" : "text"},
-                "timestamp":{"type" : "date"},
-                "energy":{"type" : "float"}
+                "created":{"type" : "date"},
+                "start_training":{"type" : "date"},
+                "end_training":{"type" : "date"},
+                "start_generating":{"type" : "date"},
+                "end_generating":{"type" : "date"},
+                "start_transfering":{"type" : "date"},
+                "end_transfering":{"type" : "date"}
             }
         }
     }
