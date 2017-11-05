@@ -7,13 +7,29 @@
     "mappings" : {
         "doc" : {
             "properties" : {
+                "status":{"type" : "keyword"},
                 "created":{"type" : "date"},
                 "start_training":{"type" : "date"},
                 "end_training":{"type" : "date"},
                 "start_generating":{"type" : "date"},
                 "end_generating":{"type" : "date"},
                 "start_transfering":{"type" : "date"},
-                "end_transfering":{"type" : "date"}
+                "end_transfering":{"type" : "date"},
+                "generator":{
+                    "type": "nested", 
+                    "properties": {
+                        "input_folder":{"type" : "keyword"},
+                        "output_folder":{"type" : "keyword"}
+                    }
+                },
+                "training":{
+                    "type" : "nested",
+                    "properties":{
+                        "options":{"type" : "keyword"},
+                        "output_folder":{"type" : "keyword"},
+                        "particle":{"type" : "keyword"}
+                    }
+                }
             }
         }
     }
