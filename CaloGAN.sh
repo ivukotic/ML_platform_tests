@@ -13,6 +13,7 @@ mkdir -p /data-rook/CaloGAN/outputs
 #install xrootd client
 mkdir -p /data-rook/xrootd
 cd /data-rook/xrootd
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/master/x/xrootd/xrootd-client_20171105-c4b77813_amd64.deb
 wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/master/x/xrootd/xrootd-client-libs_20171105-c4b77813_amd64.deb
 wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/master/x/xrootd/xrootd-libs_20171105-c4b77813_amd64.deb
