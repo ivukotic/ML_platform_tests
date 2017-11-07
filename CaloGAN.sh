@@ -17,10 +17,10 @@ wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/mast
 wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/master/x/xrootd/xrootd-client-libs_20171105-c4b77813_amd64.deb
 wget -nc http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/pool/artful/master/x/xrootd/xrootd-libs_20171105-c4b77813_amd64.deb
 wget -nc http://ftp.us.debian.org/debian/pool/main/r/readline/libreadline7_7.0-3_amd64.deb
-apt-get -q install ./libreadline7_7.0-3_amd64.deb
-apt-get -q install ./xrootd-libs_20171105-c4b77813_amd64.deb
-apt-get -q install ./xrootd-client-libs_20171105-c4b77813_amd64.deb
-apt-get -q install ./xrootd-client_20171105-c4b77813_amd64.deb 
+apt-get -q -y install ./libreadline7_7.0-3_amd64.deb
+apt-get -q -y install ./xrootd-libs_20171105-c4b77813_amd64.deb
+apt-get -q -y install ./xrootd-client-libs_20171105-c4b77813_amd64.deb
+apt-get -q -y install ./xrootd-client_20171105-c4b77813_amd64.deb 
 
 cd /ML_platform_tests/tutorial/
 git clone https://github.com/ivukotic/sc2017_prp.git
