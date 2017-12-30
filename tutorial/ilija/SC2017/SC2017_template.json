@@ -22,6 +22,7 @@
                         "output_folder":{"type" : "keyword"}
                     }
                 },
+                "transferring_options":{"type" : "keyword"},
                 "training":{
                     "type" : "nested",
                     "properties":{
