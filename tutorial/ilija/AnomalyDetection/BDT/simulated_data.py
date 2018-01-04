@@ -41,9 +41,13 @@ def get_simulated_fixed_data(n_series=6, max_noise_amplitude = 0.025, start_date
     dti = pd.DatetimeIndex(start=start_date, end=end_date, freq='s')
     n_timesteps = len(dti)
     df = pd.DataFrame()
+    mean = np.random.uniform(0, 0.6, n_series)
+    sigma = max_noise_amplitude / np.random.randint(1, 8, n_series)
+    print('mean: ', mean)
+    print('sigma: ', sigma)
     for s in range(n_series):
         # gaussian with mean between 0 and 0.6, and amplitude in one of 8 steps of max
-        v = np.random.normal(np.random.uniform(0,0.6), max_noise_amplitude/np.random.randint(1, 8), n_timesteps) 
+        v = np.random.normal(mean[s], sigma[s], n_timesteps) 
         df['link '+str(s)] = pd.Series(v)
     df.index = dti
     df['flag']=0
@@ -51,59 +55,59 @@ def get_simulated_fixed_data(n_series=6, max_noise_amplitude = 0.025, start_date
     # add fixed anomalies
     
     # moving just a little
-    affects = [1]
+    affects = [0]
     duration = 1 * 3600
     start = 25 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.1
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 2
     df.iloc[start:end, n_series]=1
     
-    affects = [1]
+    affects = [0]
     duration = 3 * 3600
     start = 49 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.1
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 2
     df.iloc[start:end, n_series]=1
     
-    affects = [1, 3, 4]
+    affects = [0, 3, 4]
     duration = 1 * 3600
     start = 73 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.1
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 2
     df.iloc[start:end, n_series]=1
     
     # moving a lot 
-    affects = [1]
+    affects = [0]    
     duration = 1 * 3600
     start = 97 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.3
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 5
     df.iloc[start:end, n_series]=1
     
-    affects = [1]
+    affects = [0]
     duration = 3 * 3600
     start = 121 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.3
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 5
     df.iloc[start:end, n_series]=1
     
-    affects = [1, 3, 4]
+    affects = [0, 3, 4]
     duration = 1 * 3600
     start = 145 * 3600
     end = min(start + duration, n_timesteps)
     print('affected:', affects, df.iloc[start].name, df.iloc[end].name)
     for s in affects:
-        df.iloc[start:end,s] = df.iloc[start:end,s] + 0.3
+        df.iloc[start:end,s] = df.iloc[start:end,s] + sigma[s] * 5
     df.iloc[start:end, n_series]=1
     
     
