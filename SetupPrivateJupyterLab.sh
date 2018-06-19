@@ -10,8 +10,10 @@ pip2 install root-pandas
 pip3 install root-pandas
 
 mkdir /root/.jupyter/
-wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/jupyter_notebook_config.py
+wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/private_jupyter_notebook_config.py
 mv private_jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+
+wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/add_lozinka.py
 python add_lozinka.py "$@"
 
 export SHELL=/bin/bash
