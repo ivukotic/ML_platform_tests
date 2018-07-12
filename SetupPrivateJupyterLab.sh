@@ -9,6 +9,11 @@ cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 pip2 install root-pandas
 pip3 install root-pandas
 
+pip2 install RISE
+pip3 install RISE
+jupyter-nbextension install rise --py --sys-prefix
+jupyter-nbextension enable rise --py --sys-prefix
+
 mkdir /workspace/
 mkdir /root/.jupyter/
 wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/private_jupyter_notebook_config.py
