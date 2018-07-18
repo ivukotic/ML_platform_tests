@@ -20,7 +20,13 @@ wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/private
 mv private_jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
 wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/add_lozinka.py
-python add_lozinka.py "$@"
+python add_lozinka.py "$1"
+
+if [ "$2" != "" ]; then
+    echo "Git Repo $2 requested..."
+    cd /workspace/
+    git clone $2
+fi
 
 export SHELL=/bin/bash
 
