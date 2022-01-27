@@ -30,4 +30,4 @@ fi
 
 export SHELL=/bin/bash
 
-jupyter lab --allow-root
+jupyter lab --allow-root --ServerApp.allow_password_change=False

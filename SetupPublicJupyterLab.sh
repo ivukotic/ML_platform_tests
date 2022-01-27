@@ -18,4 +18,4 @@ wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/public_
 mv public_jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 export SHELL=/bin/bash
 
-jupyter lab --allow-root
+jupyter lab --allow-root --ServerApp.allow_password_change=False
