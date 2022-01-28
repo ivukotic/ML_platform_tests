@@ -10,7 +10,7 @@ mkdir -p /root/.local/share/jupyter/kernels
 cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
  
 # install root-pandas and root-numpy
-pip2 install root-pandas
+# pip2 install root-pandas
 pip3 install root-pandas
 
 mkdir /root/.jupyter/
