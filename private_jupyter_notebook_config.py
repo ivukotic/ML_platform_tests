@@ -1,4 +1,4 @@
-c.NotebookApp.ip = '0.0.0.0'
-c.NotebookApp.notebook_dir = '/workspace/'
+c.ServerApp.ip = '0.0.0.0'
+c.ServerApp.port = 9999
+c.ServerApp.root_dir = '/workspace/'
 c.NotebookApp.open_browser = False
-c.NotebookApp.port = 9999
