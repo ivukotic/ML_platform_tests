@@ -28,6 +28,8 @@ if [ "$2" != "" ]; then
     git clone $2
 fi
 
+cp -r /ML_platform_tests/tutorial /workspace/
+
 export SHELL=/bin/bash
 
 jupyter lab --allow-root --ServerApp.allow_password_change=False --no-browser --config=/root/.jupyter/jupyter_notebook_config.py
