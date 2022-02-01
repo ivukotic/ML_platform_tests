@@ -30,4 +30,4 @@ fi
 
 export SHELL=/bin/bash
 
-jupyter lab --allow-root --ServerApp.allow_password_change=False --no-browser
+jupyter lab --allow-root --ServerApp.allow_password_change=False --no-browser --config=/root/.jupyter/jupyter_notebook_config.py
