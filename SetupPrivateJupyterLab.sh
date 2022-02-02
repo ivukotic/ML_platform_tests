@@ -5,6 +5,8 @@ source bin/thisroot.sh
 mkdir -p /root/.local/share/jupyter/kernels
 cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
  
+python3.8 -m pip --no-cache-dir install  root-pandas 
+
 # With RISE, a Jupyter notebook extension, you can instantly turn your jupyter notebook into a live reveal.js-based presentation.
 jupyter-nbextension install rise --py --sys-prefix
 jupyter-nbextension enable rise --py --sys-prefix
