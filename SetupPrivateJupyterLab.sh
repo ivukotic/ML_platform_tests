@@ -29,7 +29,9 @@ if [ "$OWNER" != "" ]; then
     # Set the user's $DATA dir
     export DATA=/data/$OWNER
     # Match PS1 as we have it on the login nodes
-    export PS1="[\A] \H:\w $ "
+    echo 'export PS1="[\A] \H:\w $ "' >> /etc/bash.bashrc
+    # Chown the /workspace directory so users can create notebooks
+    chown $OWNER: /workspace
     # Change to the user's homedir
     cd /home/$OWNER
     # Invoke Jupyter lab as the user
