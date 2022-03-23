@@ -16,14 +16,20 @@ jupyter-nbextension enable rise --py --sys-prefix
 # wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/private_jupyter_notebook_config.py
 # mv private_jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
-wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/add_lozinka.py
-python3 add_lozinka.py "$1"
+# wget https://raw.githubusercontent.com/ivukotic/ML_platform_tests/master/add_lozinka.py
+# python3 add_lozinka.py "$1"
 
-if [ "$2" != "" ]; then
-    echo "Git Repo $2 requested..."
+if [ "$1" != "" ]; then
+    echo "Git Repo $1 requested..."
     cd /workspace/
-    git clone $2
+    git clone $1
 fi
+
+# setting up users
+if [ "$OWNER" != "" ]; then
+    /sync_users_debian.sh -u root.atlas-af -g root.atlas-af -e https://api.ci-connect.net:18080
+    su $OWNER
+fi 
 
 cp -r /ML_platform_tests/tutorial /workspace/
 
