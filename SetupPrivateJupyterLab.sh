@@ -24,10 +24,7 @@ export SHELL=/bin/bash
 # setting up users
 if [ "$OWNER" != "" ]; then
     /sync_users_debian.sh -u root.atlas-af -g root.atlas-af -e https://api.ci-connect.net:18080
-    su - $OWNER
-    
-    jupyter lab --ServerApp.allow_password_change=False --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
-
+    su $OWNER -c "jupyter lab --ServerApp.allow_password_change=False --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
 else
     jupyter lab --allow-root --ServerApp.allow_password_change=False --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
 fi 
