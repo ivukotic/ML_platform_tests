@@ -26,6 +26,10 @@ if [ "$OWNER" != "" ]; then
     /sync_users_debian.sh -u root.atlas-af -g root.atlas-af -e https://api.ci-connect.net:18080
     # Do not leak some important tokens
     unset API_TOKEN
+    # Set the user's $DATA dir
+    export DATA=/data/$OWNER
+    # Match PS1 as we have it on the login nodes
+    export PS1="[\A] \H:\w $ "
     # Change to the user's homedir
     cd /home/$OWNER
     # Invoke Jupyter lab as the user
