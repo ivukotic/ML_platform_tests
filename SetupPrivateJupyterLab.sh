@@ -36,8 +36,8 @@ if [ "$OWNER" != "" ]; then
     # get tutorial in.
     cp -r /ML_platform_tests/tutorial ~/.
     # Invoke Jupyter lab as the user
-    su $OWNER -c "jupyter lab --ServerApp.allow_password_change=False --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
+    su $OWNER -c "jupyter lab --ServerApp.root_dir=${HOME} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
 
 else
-    jupyter lab --allow-root --ServerApp.allow_password_change=False --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
+    jupyter lab --allow-root --ServerApp.root_dir=${HOME} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
 fi 
