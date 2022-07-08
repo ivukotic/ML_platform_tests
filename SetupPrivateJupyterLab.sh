@@ -21,7 +21,7 @@ export SHELL=/bin/bash
 
 # setting up users
 if [ "$OWNER" != "" ]; then
-
+    PATH=$PATH:/usr/sbin
     /sync_users_debian.sh -u root.atlas-af -g root.atlas-af -e https://api.ci-connect.net:18080
     # Do not leak some important tokens
     unset API_TOKEN
