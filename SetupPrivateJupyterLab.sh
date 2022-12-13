@@ -29,13 +29,16 @@ if [ "$OWNER" != "" ] && [ "$CONNECT_GROUP" != "" ]; then
     cp -r /ML_platform_tests/tutorial ~/.
 
     # setup ROOT
+    env
     cd /opt/root/
     source bin/thisroot.sh
-    unset JUPYTER_PATH
     mkdir -p ~/.local/share/jupyter/kernels
     cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 
     python3.8 -m pip --no-cache-dir install  root-pandas 
+    env
+    unset JUPYTER_PATH
+    cd /home/$OWNER
 
     # Invoke Jupyter lab as the user
     su $OWNER -c "jupyter lab --ServerApp.root_dir=/home/${OWNER} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
