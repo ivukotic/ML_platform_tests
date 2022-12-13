@@ -1,11 +1,3 @@
-# setup ROOT
-cd /opt/root/
-source bin/thisroot.sh
-# copy ROOT kernel into Jupyter
-mkdir -p /root/.local/share/jupyter/kernels
-cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
- 
-python3.8 -m pip --no-cache-dir install  root-pandas 
 
 # With RISE, a Jupyter notebook extension, you can instantly turn your jupyter notebook into a live reveal.js-based presentation.
 jupyter-nbextension install rise --py --sys-prefix
@@ -35,9 +27,21 @@ if [ "$OWNER" != "" ]; then
     cd /home/$OWNER
     # get tutorial in.
     cp -r /ML_platform_tests/tutorial ~/.
+
+    # setup ROOT
+    cd /opt/root/
+    source bin/thisroot.sh
+    # copy ROOT kernel into Jupyter
+    mkdir -p /root/.local/share/jupyter/kernels
+    cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
+
+    python3.8 -m pip --no-cache-dir install  root-pandas 
+
+
     # Invoke Jupyter lab as the user
     su $OWNER -c "jupyter lab --ServerApp.root_dir=/home/${OWNER} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
 
 else
     jupyter lab --allow-root --ServerApp.root_dir=${HOME} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
 fi 
+
