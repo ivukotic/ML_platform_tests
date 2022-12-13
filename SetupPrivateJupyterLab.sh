@@ -12,9 +12,9 @@ fi
 export SHELL=/bin/bash
 
 # setting up users
-if [ "$OWNER" != "" ]; then
+if [ "$OWNER" != "" ] && [ "$CONNECT_GROUP" != "" ]; then
     PATH=$PATH:/usr/sbin
-    /sync_users_debian.sh -u root.atlas-af -g root.atlas-af -e https://api.ci-connect.net:18080
+    /sync_users_debian.sh -u root."$CONNECT_GROUP" -g root."$CONNECT_GROUP" -e https://api.ci-connect.net:18080
     # Do not leak some important tokens
     unset API_TOKEN
     # Set the user's $DATA dir
@@ -41,7 +41,7 @@ if [ "$OWNER" != "" ]; then
     # Invoke Jupyter lab as the user
     su $OWNER -c "jupyter lab --ServerApp.root_dir=/home/${OWNER} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py"
 
-else
-    jupyter lab --allow-root --ServerApp.root_dir=${HOME} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
+# else
+#    jupyter lab --allow-root --ServerApp.root_dir=${HOME} --no-browser --config=/usr/local/etc/jupyter_notebook_config.py
 fi 
 
