@@ -33,7 +33,7 @@ if [ "$OWNER" != "" ] && [ "$CONNECT_GROUP" != "" ]; then
     source bin/thisroot.sh
     # copy ROOT kernel into Jupyter
     mkdir -p ~/.local/share/jupyter/kernels
-    cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
+    # cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 
     python3.8 -m pip --no-cache-dir install  root-pandas 
 
