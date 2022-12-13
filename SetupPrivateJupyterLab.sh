@@ -29,10 +29,11 @@ if [ "$OWNER" != "" ] && [ "$CONNECT_GROUP" != "" ]; then
     cp -r /ML_platform_tests/tutorial ~/.
 
     # setup ROOT
-    # cd /opt/root/
-    # source bin/thisroot.sh
-    # mkdir -p ~/.local/share/jupyter/kernels
-    # cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
+    cd /opt/root/
+    source bin/thisroot.sh
+    unset JUPYTER_PATH
+    mkdir -p ~/.local/share/jupyter/kernels
+    cp -r $ROOTSYS/etc/notebook/kernels/root ~/.local/share/jupyter/kernels
 
     python3.8 -m pip --no-cache-dir install  root-pandas 
 
