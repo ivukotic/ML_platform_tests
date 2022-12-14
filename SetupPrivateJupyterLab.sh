@@ -38,7 +38,7 @@ if [ "$OWNER" != "" ] && [ "$CONNECT_GROUP" != "" ]; then
     python3.8 -m pip --no-cache-dir install  root-pandas 
     env
     unset JUPYTER_PATH
-    unset UPYTER_CONFIG_DIR
+    unset JUPYTER_CONFIG_DIR
     cd /home/$OWNER
 
     # Invoke Jupyter lab as the user
