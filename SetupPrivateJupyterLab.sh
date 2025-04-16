@@ -1,8 +1,8 @@
 !#/bin/bash
 
 # With RISE, a Jupyter notebook extension, you can instantly turn your jupyter notebook into a live reveal.js-based presentation.
-jupyter-nbextension install rise --py --sys-prefix
-jupyter-nbextension enable rise --py --sys-prefix
+# jupyter-nbextension install rise --py --sys-prefix
+# jupyter-nbextension enable rise --py --sys-prefix
 
 if [ "$1" != "" ]; then
     echo "Git Repo $1 requested..."
