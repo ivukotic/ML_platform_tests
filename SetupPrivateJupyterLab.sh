@@ -1,3 +1,4 @@
+!#/bin/bash
 
 # With RISE, a Jupyter notebook extension, you can instantly turn your jupyter notebook into a live reveal.js-based presentation.
 jupyter-nbextension install rise --py --sys-prefix
